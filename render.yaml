@@ -1,0 +1,6 @@
+services:
+  - name: app
+    plan: hobby
+    env:
+      - key: NODE_ENV
+        value: production
