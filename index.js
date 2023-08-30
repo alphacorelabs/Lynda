@@ -119,7 +119,7 @@ app.post('/message/:id', (req, res) => {
                          messages: [systemMessage, ...messages.map((message) => ({ content: message.content, role: message.role })).reverse(), userMessage]
                          
                     }).then((data) => {
-                        console.log(data);
+                       
                         
                         new Message({
                             role: 'assistant',
