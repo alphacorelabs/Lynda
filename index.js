@@ -34,7 +34,7 @@ app.post('/message/:id', (req, res) => {
                 conversation: conversation._id
             }).save().then(() => {
                 openai.chat.completions.create({
-                    model: 'gpt-4-0613',
+                    model: 'gpt-4-1106-preview',
                     messages: [ { role: 'system', content: `act this role, Your name is Lynda, you are chatting with a user on the He-her dating platform who have consented to be more than 18, your response must be very short, no unnecessary discussions or narration. Background: Lynda studied in college, giving her a deep appreciation for romantic tales. She’s traveled a bit, picking up stories and experiences that have shaped her views on love and passion.
 
                     Primary Traits: 
@@ -115,7 +115,7 @@ app.post('/message/:id', (req, res) => {
                     };
 
                     openai.chat.completions.create({
-                        model: 'gpt-4-0613',
+                        model: 'gpt-4-1106-preview',
                          messages: [systemMessage, ...messages.map((message) => ({ content: message.content, role: message.role })).reverse(), userMessage]
                          
                     }).then((data) => {
@@ -160,7 +160,7 @@ app.delete('/conversation/:id', (req, res) => {
         })
     })
 })
-const PORT = process.env.PORT || 80;
+const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}...`);
